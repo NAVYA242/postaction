@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+			background-image: url(https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=600);
+			background-size: cover;
+			text-align: center;
+		}
+		#msg{
+			
+			padding: 0.6% ;
+			margin-top: 7%;
+			font-size:1rem ;
+			font-family: italic;
+		}
+		#password{
+			padding: 0.6%;
+			margin-top: 2%;
+			font-size:1rem ;
+			font-family: italic;
+		}
+		.btn{
+			padding: 0.3%;
+			margin-top: 1.5%;
+			width: 5%;
+			background-color: cadetblue;
+			color: yellow;
+		}
+		.page{
+			border: 1px solid blue;
+			padding: 0%;
+		}
+	</style>
+
+	
+</head>
+<body>
+	<script type="text/javascript">
+		function demo(){
+			var msg=document.getElementById("msg").value;
+			console.log(msg)
+			var password=document.getElementById("password").value;
+			console.log(password)
+
+		
+		 fetch("http://localhost:4550/newData",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({name:msg,age:password})
+
+		})
+	}
+	</script>
+
+	<div  class=page>
+		<p><input id="msg" type="text" placeholder="Enter name" /></p>
+		<p><input id="password" type="text" placeholder="password" /></p>
+		<p><button class="btn"onclick="demo()">submit</button></p>
+	</div>
+</body>
+</html>
