@@ -13,8 +13,7 @@ app.get("/",(req,res)=>{
 })
 app.post("/newData",(req,res)=>{
 	console.log(req.body)
-	const {name,age}=req.body
-	console.log("values of",name,age)
+	const {name,age,car,gender,number,mailadd}=req.body
+	console.log("values of",name,age,car,gender,number,mailadd)
 })
-
 app.listen(port,()=>console.log("server is started"))

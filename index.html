@@ -13,15 +13,16 @@
 		#msg{
 			
 			padding: 0.6% ;
-			margin-top: 7%;
-			font-size:1rem ;
-			font-family: italic;
-		}
-		#password{
-			padding: 0.6%;
 			margin-top: 2%;
 			font-size:1rem ;
 			font-family: italic;
+		}
+		#password,#num,#email{
+			padding: 0.4% ;
+			margin-top: 0.4% 0% 0.3%;
+			font-size:1rem ;
+			font-family: italic;
+			
 		}
 		.btn{
 			padding: 0.3%;
@@ -31,9 +32,16 @@
 			color: yellow;
 		}
 		.page{
-			border: 1px solid blue;
-			padding: 0%;
+			color: blue;
+			padding-top: 2%;
 		}
+		#opt{
+			font-size:1.2rem ;
+			font-family: italic;
+			color: red;
+		}
+	
+		
 	</style>
 
 	
@@ -45,22 +53,40 @@
 			console.log(msg)
 			var password=document.getElementById("password").value;
 			console.log(password)
-
+			var cars=document.getElementById("cars").value;
+			console.log(cars)
+			var gender=document.getElementById("gen").value;
+			console.log(gen)
+			var number=document.getElementById("num").value;
+			console.log(num)
+			var mail=document.getElementById("email").value;
+			console.log(email)
 		
 		 fetch("http://localhost:4550/newData",{
 			method:"POST",
 			headers:{
 				"Content-Type":"application/json"
 			},
-			body:JSON.stringify({name:msg,age:password})
+			body:JSON.stringify({name:msg,age:password,car:cars,gender:gender,number:number,mailadd:mail})
 
 		})
 	}
 	</script>
 
-	<div  class=page>
+	<div>
+		<h1 class =page >Login Page</h1>
 		<p><input id="msg" type="text" placeholder="Enter name" /></p>
 		<p><input id="password" type="text" placeholder="password" /></p>
+		<label id="opt">Choose a car:</label>
+		<select id="cars">
+				<option value="volvo">Volvo</option>
+		  		<option value="saab">Saab</option>
+				<option value="mercedes">Mercedes</option>
+		</select>
+		<p><input id="gen" type="radio" value="female" name="gender"></p>female
+		<p><input  id="gen" type="radio" value="male" name="gender"></p>male
+		<p><input id="num" type="number" placeholder="Enter number"/></p>
+		<p><input id="email" type="email" placeholder="enter email address"/></p>
 		<p><button class="btn"onclick="demo()">submit</button></p>
 	</div>
 </body>
